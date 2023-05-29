@@ -190,6 +190,28 @@ class Accounts:
         return url
 
     @staticmethod
+    def get_erc20_token_transfer_events_by_contract_address_block_based(
+        contract_address: str, startblock: int, endblock: int, sort: str
+    ) -> str:
+
+        url = (
+            f"{fields.MODULE}"
+            f"{modules.ACCOUNT}"
+            f"{fields.ACTION}"
+            f"{actions.TOKENTX}"
+            f"{fields.CONTRACT_ADDRESS}"
+            f"{contract_address}"
+            f"{fields.START_BLOCK}"
+            f"{str(startblock)}"
+            f"{fields.END_BLOCK}"
+            f"{str(endblock)}"
+            f"{fields.SORT}"
+            f"{sort}"
+        )
+
+        return url
+
+    @staticmethod
     def get_erc20_token_transfer_events_by_contract_address_paginated(
         contract_address: str, page: int, offset: int, sort: str
     ) -> str:
